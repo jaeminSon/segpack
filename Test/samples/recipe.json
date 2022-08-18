@@ -1,0 +1,25 @@
+{
+    "description":{
+        "project":"bodysealer",
+        "data":"TestSegmentation",
+        "architecture":"deeplab",
+        "comment":"Test"
+    },
+    "architecture":{
+        "filename":"deeplab_bodysealer",
+        "classname":"DeepLab",
+        "arguments":{
+            "backbone":"resnet",
+            "output_stride":16,
+            "num_classes":4,
+            "sync_bn":true,
+            "freeze_bn":false,
+            "freeze_backbone":false
+        }
+    },
+    "preprocess": "imagenet"
+}
+
+
+
+ 

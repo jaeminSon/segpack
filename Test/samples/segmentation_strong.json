@@ -1,0 +1,198 @@
+{
+    "__version__": "0.5.2",
+    "transform": {
+        "__class_fullname__": "albumentations.core.composition.Compose",
+        "p": 1.0,
+        "transforms": [
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.ShiftScaleRotate",
+                "always_apply": false,
+                "p": 1,
+                "shift_limit_x": [
+                    -0.1,
+                    0.1
+                ],
+                "shift_limit_y": [
+                    -0.1,
+                    0.1
+                ],
+                "scale_limit": [
+                    -0.19999999999999996,
+                    0.19999999999999996
+                ],
+                "rotate_limit": [
+                    -359,
+                    359
+                ],
+                "interpolation": 1,
+                "border_mode": 4,
+                "value": null,
+                "mask_value": null
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.RandomCrop",
+                "always_apply": false,
+                "p": 1,
+                "height": 1025,
+                "width": 1025
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.VerticalFlip",
+                "always_apply": false,
+                "p": 0.3
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.HorizontalFlip",
+                "always_apply": false,
+                "p": 0.3
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.HueSaturationValue",
+                "always_apply": false,
+                "p": 0.3,
+                "hue_shift_limit": [
+                    -5,
+                    5
+                ],
+                "sat_shift_limit": [
+                    -5,
+                    5
+                ],
+                "val_shift_limit": [
+                    -5,
+                    5
+                ]
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.RGBShift",
+                "always_apply": false,
+                "p": 0.3,
+                "r_shift_limit": [
+                    -5,
+                    5
+                ],
+                "g_shift_limit": [
+                    -5,
+                    5
+                ],
+                "b_shift_limit": [
+                    -5,
+                    5
+                ]
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.GaussNoise",
+                "always_apply": false,
+                "p": 0.3,
+                "var_limit": [
+                    10.0,
+                    50.0
+                ]
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.ISONoise",
+                "always_apply": false,
+                "p": 0.3,
+                "intensity": [
+                    0.1,
+                    0.5
+                ],
+                "color_shift": [
+                    0.01,
+                    0.05
+                ]
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.ImageCompression",
+                "always_apply": false,
+                "p": 0.3,
+                "quality_lower": 20,
+                "quality_upper": 90,
+                "compression_type": 0
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.MultiplicativeNoise",
+                "always_apply": false,
+                "p": 0.3,
+                "multiplier": [
+                    0.8333333333333334,
+                    1.2
+                ],
+                "per_channel": false,
+                "elementwise": true
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.RandomGamma",
+                "always_apply": false,
+                "p": 0.3,
+                "gamma_limit": [
+                    80,
+                    120
+                ],
+                "eps": null
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.OpticalDistortion",
+                "always_apply": false,
+                "p": 0.3,
+                "distort_limit": [
+                    -0.05,
+                    0.05
+                ],
+                "shift_limit": [
+                    -0.05,
+                    0.05
+                ],
+                "interpolation": 1,
+                "border_mode": 1,
+                "value": null,
+                "mask_value": null
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.Downscale",
+                "always_apply": false,
+                "p": 0.3,
+                "scale_min": 0.75,
+                "scale_max": 0.99,
+                "interpolation": 0
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.CoarseDropout",
+                "always_apply": false,
+                "p": 0.3,
+                "max_holes": 5,
+                "max_height": 128,
+                "max_width": 128,
+                "min_holes": 5,
+                "min_height": 128,
+                "min_width": 128,
+                "fill_value": 0,
+                "mask_fill_value": 0
+            },
+            {
+                "__class_fullname__": "albumentations.augmentations.transforms.ColorJitter",
+                "always_apply": false,
+                "p": 0.3,
+                "brightness": [
+                    0.8,
+                    1.2
+                ],
+                "contrast": [
+                    0.8,
+                    1.2
+                ],
+                "saturation": [
+                    0.8,
+                    1.2
+                ],
+                "hue": [
+                    -0.02,
+                    0.02
+                ]
+            }
+        ],
+        "bbox_params": null,
+        "keypoint_params": null,
+        "additional_targets": {}
+    }
+}

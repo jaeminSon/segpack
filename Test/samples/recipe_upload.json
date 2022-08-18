@@ -1,0 +1,46 @@
+{
+    "description":{
+        "project":"bodysealer",
+        "data":"TestSegmentation",
+        "architecture":"deeplab",
+        "comment":"Test"
+    },
+    "architecture":{
+        "filename":"deeplab_bodysealer",
+        "classname":"DeepLab",
+        "arguments":{
+            "backbone":"resnet",
+            "output_stride":16,
+            "num_classes":4,
+            "sync_bn":true,
+            "freeze_bn":false,
+            "freeze_backbone":false
+        }
+    },
+    "checkpoint":{
+        "key_weight_state_dict":"state_dict",
+        "key_optimizer_state_dict":"optimizer"
+    }
+    ,
+    "information": {
+        "author": "jaemin son",
+        "date": "20220615",
+        "task": "segmentation",
+        "pretrain_method": "imagenet-classification",
+        "performance": {
+            "dataset1": {
+                "metric1": "val1",
+                "metric2": "val2"
+            },
+            "dataset2": {
+                "metric1": "val1",
+                "metric2": "val2"
+            }
+        }
+    },
+    "preprocess": "imagenet"
+}
+
+
+
+ 
