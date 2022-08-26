@@ -47,9 +47,15 @@ root
 # convert format (labelme -> png)
 >>> from segpack.convert import convert_format
 >>> convert_format("samples/labelme", "path/to/output/dir", "labelme", "segmap", {"__ignore__": -1, "_background_": 0, "1": 1, "2": 2, "3": 3})
-
 ```
 
 ### Examples (original image - png - labelme)
-<img width="300" alt="image" src="https://github.hmckmc.co.kr/storage/user/172/files/2e89b16e-9a16-4e6a-bbdf-d27cfb2931b2"> <img width="300" alt="image" src="https://github.hmckmc.co.kr/storage/user/172/files/1c74e758-89fb-4eba-8d6c-cde26cc3b53e">
-<img width="300" alt="스크린샷 2022-07-05 오후 3 29 42" src="https://github.hmckmc.co.kr/storage/user/172/files/6ff750d9-2427-4a63-ae54-2c50dbce9494">
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/8290383/186805557-2225fb03-2674-49ba-a473-ff581ac8fce7.jpeg"> <img width="300" alt="image" src="https://user-images.githubusercontent.com/8290383/186805606-616c6698-1f2d-440d-a500-aa8641180fdc.png">
+<img width="300" alt="스크린샷 2022-07-05 오후 3 29 42" src="https://user-images.githubusercontent.com/8290383/186805624-8b093902-d85a-4fe9-a300-d894dab1eea4.png">
+
+### Segmentation data folder structure 
+<img width="600" alt="스크린샷 2022-08-26 오전 11 39 45" src="https://user-images.githubusercontent.com/8290383/186805750-8f5bf975-48ba-43b8-90a5-6a09fe0873f4.png">
+
+### Inference data folder structure 
+<img width="600" alt="스크린샷 2022-08-26 오전 11 39 49" src="https://user-images.githubusercontent.com/8290383/186805790-97571085-79ad-4557-997f-7a68b2a7b302.png">
+
