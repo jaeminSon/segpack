@@ -11,7 +11,7 @@ from .scheduler import Scheduler
 from .measure import Evaluator
 from .utils import cudafy, load_network, get_optimizer, save
 
-import airszoo
+import torchfetch
 
 __all__ = ['loop', 'train']
 
@@ -96,7 +96,7 @@ def train(train_data, val_data, pretrained_network: str, config: str):
     train_data = pathfy(train_data)
     val_data = pathfy(val_data)
     
-    hyperparam = airszoo.get_hyperparam(config)
+    hyperparam = torchfetch.get_hyperparam(config)
     assert not Path(hyperparam["save"]["checkpoint"]).exists(), "{} already exists.".format(hyperparam["save"]["checkpoint"])
     assert not Path(hyperparam["save"]["tensorboard"]).exists(), "{} already exists.".format(hyperparam["save"]["tensorboard"])
     network = load_network(pretrained_network)
@@ -105,17 +105,17 @@ def train(train_data, val_data, pretrained_network: str, config: str):
     criterion = Loss(hyperparam["loss"])
     evaluator = Evaluator(hyperparam["measure"], hyperparam["save"]["tensorboard"] if "tensorboard" in hyperparam["save"] else None)
 
-    preprocess = airszoo.get_preprocess_name_used_for_train(pretrained_network)
+    preprocess = torchfetch.get_preprocess_name_used_for_train(pretrained_network)
     augment_train = hyperparam.get("augment_train")
     augment_val = hyperparam.get("augment_val")
-    train_dataloader = airszoo.get_dataloader(train_data, 
+    train_dataloader = torchfetch.get_dataloader(train_data, 
                                               preprocess, 
                                               augment_train,
                                               **{"num_workers": hyperparam["num_workers"], 
                                                  "pin_memory": True, 
                                                  "batch_size": hyperparam["batch_size"]["train"], 
                                                  "shuffle": True})
-    val_dataloader = airszoo.get_dataloader(val_data, 
+    val_dataloader = torchfetch.get_dataloader(val_data, 
                                             preprocess, 
                                             augment_val,
                                             **{"num_workers": hyperparam["num_workers"], 

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import torch
 
-import airszoo
+import torchfetch
 
 
 def ignore_error(func):
@@ -18,14 +18,14 @@ def ignore_error(func):
 
 def load_network(pretrained_model: str, cuda: bool = True):
     try:
-        network = airszoo.get_pretrained_network(pretrained_model)
+        network = torchfetch.get_pretrained_network(pretrained_model)
         warnings.warn("Load checkpoint {}.".format(pretrained_model), UserWarning)
         if cuda:
             return network.cuda()
         else:
             return network
     except:
-        network = airszoo.instantiate_network(pretrained_model)
+        network = torchfetch.instantiate_network(pretrained_model)
         warnings.warn("Instantiate architecture without loading checkpoint ({}).".format(pretrained_model), UserWarning)
         if cuda:
             return network.cuda()
@@ -36,7 +36,7 @@ def load_network(pretrained_model: str, cuda: bool = True):
 def get_optimizer(params, init_lr: float, config: str):
     optimizer = torch.optim.AdamW(params, init_lr)
     try:
-        optimizer.load_state_dict(airszoo.get_optimizer_state_dict(config))
+        optimizer.load_state_dict(torchfetch.get_optimizer_state_dict(config))
         return optimizer
     except:
         return optimizer

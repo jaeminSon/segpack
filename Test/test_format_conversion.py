@@ -17,8 +17,7 @@ class TestFormatConversion:
         yield  # test
 
         # after test
-        for p in glob("Test/output/*"):
-            shutil.rmtree(p, ignore_errors=True)
+        shutil.rmtree("Test/output")
 
     def test_labelmeFile2segmapFile(self, remove_output):
         convert_format("Test/samples/labelme", "Test/output/labelme2segmap", "labelme", "segmap",

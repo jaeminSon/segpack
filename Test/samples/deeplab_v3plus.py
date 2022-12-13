@@ -25,15 +25,6 @@ def build_backbone(backbone, output_stride, BatchNorm):
         raise NotImplementedError
 
 class DeepLab(nn.Module):
-    """ DeepLab
-
-        File path: /vision/airszoo/bodysealer_20210901_deeplab_InitialModel/bodysealer_20210901_deeplab_InitialModel.py
-
-        Performance (mIoU / 20210827_val):
-        
-        hemming: 0.80160792, mastic: 0.87166456, bpr: 0.98200195, mIoU: 0.912615
-    
-    """
     def __init__(self, backbone='resnet', output_stride=16, num_classes=21,
                  sync_bn=True, freeze_bn=False, freeze_backbone=False):
         super(DeepLab, self).__init__()

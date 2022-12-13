@@ -6,7 +6,6 @@ import pytest
 
 from segpack.deploy import generate_jit, Deployer
 
-PATH_AIRSZOO_INHOUSE = ["/vision3/airszoo"]
 
 class TestJit:
     
@@ -15,10 +14,8 @@ class TestJit:
         yield  # test
 
         # after test
-        for p in glob("Test/output/*"):
-            shutil.rmtree(p, ignore_errors=True)
+        shutil.rmtree("Test/output")
     
-    @pytest.mark.skipif(any([not Path(p).exists() for p in PATH_AIRSZOO_INHOUSE]), reason="Directory not found for inhouse setting.")
     def test_generate_jit(self):
         generate_jit("bodysealer", 2049, 2449, "Test/output/jit")
         

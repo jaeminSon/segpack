@@ -13,7 +13,7 @@ from skimage.measure import label
 from tqdm import tqdm
 import labelme
 
-import airszoo
+import torchfetch
 
 from .utils import load_network, cudafy
 
@@ -30,8 +30,8 @@ def generate_pseudolabels(data, pretrained_model: str, format: str, outdir: str,
     assert not Path(outdir).exists(), "{} already exists.".format(outdir)
 
     network = load_network(pretrained_model)
-    dataloader = airszoo.get_dataloader(data,
-                                        preprocess=airszoo.get_preprocess_name_used_for_train(pretrained_model),
+    dataloader = torchfetch.get_dataloader(data,
+                                        preprocess=torchfetch.get_preprocess_name_used_for_train(pretrained_model),
                                         augment=augment,
                                         **{"num_workers": 1,
                                             "pin_memory": True,
